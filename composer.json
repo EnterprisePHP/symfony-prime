@@ -1,0 +1,94 @@
+{
+  "name": "okulbilisim/sf-prime",
+  "license": "proprietary",
+  "type": "project",
+  "autoload": {
+    "psr-4": {
+      "": "src/"
+    }
+  },
+  "repositories": [
+    {
+      "type": "package",
+      "package": {
+        "name": "jquery/jquery",
+        "version": "1.11.3",
+        "dist": {
+          "url": "http://code.jquery.com/jquery-1.11.3.js",
+          "type": "file"
+        }
+      }
+    }
+  ],
+  "require": {
+    "php": ">=5.3.9",
+    "symfony/symfony": "2.7.*",
+    "doctrine/orm": "^2.4.8",
+    "doctrine/doctrine-bundle": "~1.4",
+    "symfony/assetic-bundle": "~2.3",
+    "symfony/swiftmailer-bundle": "~2.3",
+    "symfony/monolog-bundle": "~2.4",
+    "sensio/distribution-bundle": "~4.0",
+    "sensio/framework-extra-bundle": "^3.0.2",
+    "incenteev/composer-parameter-handler": "~2.0",
+    "doctrine/doctrine-fixtures-bundle": "2.2.*",
+    "stof/doctrine-extensions-bundle": "1.1.*",
+    "jms/serializer-bundle": "@dev",
+    "friendsofsymfony/rest-bundle": "1.7.*",
+    "friendsofsymfony/jsrouting-bundle": "^1.5",
+    "friendsofsymfony/elastica-bundle": "dev-master",
+    "friendsofsymfony/user-bundle": "dev-master",
+    "hwi/oauth-bundle": "0.4.*@dev",
+    "jms/di-extra-bundle": "~1.5",
+    "twig/extensions" : "~1.2",
+    "white-october/pagerfanta-bundle": "dev-master",
+    "apy/datagrid-bundle": "2.2.16",
+    "knplabs/knp-menu-bundle": "~2",
+    "braincrafted/bootstrap-bundle": "~2.0",
+    "phpoffice/phpexcel" : "1.8.*",
+    "twbs/bootstrap": "3.3.*",
+    "jquery/jquery":  "1.11.*"
+  },
+  "require-dev": {
+    "sensio/generator-bundle": "~2.3",
+    "hautelook/alice-bundle": "dev-master",
+    "nelmio/api-doc-bundle": "2.9.*",
+    "dunglas/api-bundle" : "1.0.*"
+  },
+  "scripts": {
+    "post-root-package-install": [
+      "SymfonyStandard\\Composer::hookRootPackageInstall"
+    ],
+    "post-install-cmd": [
+      "Incenteev\\ParameterHandler\\ScriptHandler::buildParameters",
+      "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::buildBootstrap",
+      "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::clearCache",
+      "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::installAssets",
+      "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::installRequirementsFile",
+      "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::removeSymfonyStandardFiles",
+      "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::prepareDeploymentTarget",
+      "Braincrafted\\Bundle\\BootstrapBundle\\Composer\\ScriptHandler::install"
+    ],
+    "post-update-cmd": [
+      "Incenteev\\ParameterHandler\\ScriptHandler::buildParameters",
+      "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::buildBootstrap",
+      "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::clearCache",
+      "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::installAssets",
+      "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::installRequirementsFile",
+      "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::removeSymfonyStandardFiles",
+      "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::prepareDeploymentTarget",
+      "Braincrafted\\Bundle\\BootstrapBundle\\Composer\\ScriptHandler::install"
+    ]
+  },
+  "config": {
+    "bin-dir": "bin"
+  },
+  "extra": {
+    "symfony-app-dir": "app",
+    "symfony-web-dir": "web",
+    "symfony-assets-install": "relative",
+    "incenteev-parameters": {
+        "file": "app/config/parameters.yml"
+    }
+  }
+}

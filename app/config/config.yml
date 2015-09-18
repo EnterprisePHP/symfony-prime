@@ -1,0 +1,116 @@
+imports:
+  - { resource: parameters.yml }
+  - { resource: security.yml }
+  - { resource: services.yml }
+
+parameters:
+  locale: en
+
+framework:
+  secret:          "%secret%"
+  router:
+      resource: "%kernel.root_dir%/config/routing.yml"
+      strict_requirements: ~
+  form:            ~
+  csrf_protection: ~
+  validation:      { enable_annotations: true }
+  templating:
+      engines: ['twig']
+  default_locale:  "%locale%"
+  trusted_hosts:   ~
+  trusted_proxies: ~
+  session:
+      handler_id:  ~
+  fragments:       ~
+  http_method_override: true
+
+# Twig Configuration
+twig:
+  debug:            "%kernel.debug%"
+  strict_variables: "%kernel.debug%"
+
+# Assetic Configuration
+assetic:
+  debug:          "%kernel.debug%"
+  use_controller: false
+  bundles:        [ ]
+  filters:
+    cssrewrite: ~
+    sass:
+      bin: /usr/local/bin/sass
+      apply_to: "\.scss$"
+
+braincrafted_bootstrap:
+  less_filter: sass
+
+# Doctrine Configuration
+doctrine:
+  dbal:
+    driver:   pdo_mysql
+    host:     "%database_host%"
+    port:     "%database_port%"
+    dbname:   "%database_name%"
+    user:     "%database_user%"
+    password: "%database_password%"
+    charset:  UTF8
+    server_version: 5.6
+
+  orm:
+    auto_generate_proxy_classes: "%kernel.debug%"
+    entity_managers:
+      default:
+        auto_mapping: true
+        naming_strategy: doctrine.orm.naming_strategy.underscore
+        mappings:
+          gedmo_loggable:
+            type: annotation
+            prefix: Gedmo\Loggable\Entity
+            dir: "%kernel.root_dir%/../vendor/gedmo/doctrine-extensions/lib/Gedmo/Loggable/Entity"
+            alias: GedmoLoggable
+            is_bundle: false
+        filters:
+          softdeleteable:
+            class: Gedmo\SoftDeleteable\Filter\SoftDeleteableFilter
+            enabled: true
+
+stof_doctrine_extensions:
+  default_locale: %locale%
+  orm:
+    default:
+      softdeleteable: true
+      timestampable: true
+      blameable: true
+      loggable: true
+
+fos_rest:
+  routing_loader:
+    default_format: json
+    include_format: false
+  param_fetcher_listener: true
+  allowed_methods_listener: true
+  access_denied_listener:
+    json: true
+
+fos_elastica:
+  clients:
+    default: { host: localhost, port: 9200 }
+  indexes:
+    app: ~
+
+fos_user:
+  db_driver: orm
+  firewall_name: main
+  user_class: UserBundle\Entity\User
+
+knp_menu:
+  twig:
+    template: knp_menu.html.twig
+  templating: false
+  default_renderer: twig
+
+swiftmailer:
+  transport: "%mailer_transport%"
+  host:      "%mailer_host%"
+  username:  "%mailer_user%"
+  password:  "%mailer_password%"
+  spool:     { type: memory }
