@@ -46,7 +46,7 @@
     "knplabs/knp-menu-bundle": "~2",
     "braincrafted/bootstrap-bundle": "~2.0",
     "phpoffice/phpexcel" : "1.8.*",
-    "twbs/bootstrap": "3.3.*",
+    "twbs/bootstrap-sass": "3.3.*",
     "jquery/jquery":  "1.11.*"
   },
   "require-dev": {
