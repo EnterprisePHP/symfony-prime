@@ -10,4 +10,6 @@
 /vendor/
 /web/bundles/
 /web/fonts/
+/web/assets/
+/web/vendor/
 composer.lock

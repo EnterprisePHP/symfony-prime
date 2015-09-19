@@ -1,0 +1,14 @@
+{
+  "name": "sf-prime",
+  "version": "1",
+  "description": "symfony vendor application",
+  "keywords": [
+    "bootstrap"
+  ],
+  "license": "Apache",
+  "ignore": [],
+  "main": [],
+  "dependencies": {
+    "jquery": "~2.1.4"
+  }
+}

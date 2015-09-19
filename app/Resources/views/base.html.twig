@@ -1,7 +1,7 @@
 {% extends 'MopaBootstrapBundle::base.html.twig' %}
 
 {% block head_style %}
-    {% stylesheets filter="cssrewrite"
+    {% stylesheets filter="cssrewrite,?yui_css" output="assets/css/bootstrap.css"
     'bundles/mopabootstrap/less/mopabootstrapbundle-fa.less'
     %}
     <link href="{{ asset_url }}" type="text/css" rel="stylesheet" media="screen" />
@@ -15,7 +15,8 @@
 {% endblock footer %}
 
 {% block foot_script_assetic %}
-    {% javascripts
+    {% javascripts filter="?yui_js" output="assets/js/bootstrap.js"
+    'vendor/jquery/dist/jquery.js'
     '@MopaBootstrapBundle/Resources/public/bootstrap/js/tooltip.js'
     '@MopaBootstrapBundle/Resources/public/bootstrap/js/*.js'
     '@MopaBootstrapBundle/Resources/public/js/mopabootstrap-collection.js'

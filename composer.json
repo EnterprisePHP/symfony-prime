@@ -7,19 +7,6 @@
       "": "src/"
     }
   },
-  "repositories": [
-    {
-      "type": "package",
-      "package": {
-        "name": "jquery/jquery",
-        "version": "1.11.3",
-        "dist": {
-          "url": "http://code.jquery.com/jquery-1.11.3.js",
-          "type": "file"
-        }
-      }
-    }
-  ],
   "require": {
     "php": ">=5.3.9",
     "symfony/symfony": "2.7.*",
@@ -47,7 +34,6 @@
     "mopa/bootstrap-bundle": "v3.0.0-rc2",
     "phpoffice/phpexcel" : "1.8.*",
     "twbs/bootstrap": "3.3.*",
-    "jquery/jquery":  "1.11.*",
     "ircmaxell/password-compat": "~1.0"
   },
   "require-dev": {
