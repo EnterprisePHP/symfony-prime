@@ -44,9 +44,9 @@
     "white-october/pagerfanta-bundle": "dev-master",
     "apy/datagrid-bundle": "2.2.16",
     "knplabs/knp-menu-bundle": "~2",
-    "braincrafted/bootstrap-bundle": "~2.0",
+    "mopa/bootstrap-bundle": "v3.0.0-rc2",
     "phpoffice/phpexcel" : "1.8.*",
-    "twbs/bootstrap-sass": "3.3.*",
+    "twbs/bootstrap": "3.3.*",
     "jquery/jquery":  "1.11.*",
     "ircmaxell/password-compat": "~1.0"
   },
@@ -68,7 +68,7 @@
       "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::installRequirementsFile",
       "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::removeSymfonyStandardFiles",
       "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::prepareDeploymentTarget",
-      "Braincrafted\\Bundle\\BootstrapBundle\\Composer\\ScriptHandler::install"
+      "Mopa\\Bundle\\BootstrapBundle\\Composer\\ScriptHandler::postInstallSymlinkTwitterBootstrap"
     ],
     "post-update-cmd": [
       "Incenteev\\ParameterHandler\\ScriptHandler::buildParameters",
@@ -78,7 +78,7 @@
       "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::installRequirementsFile",
       "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::removeSymfonyStandardFiles",
       "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::prepareDeploymentTarget",
-      "Braincrafted\\Bundle\\BootstrapBundle\\Composer\\ScriptHandler::install"
+      "Mopa\\Bundle\\BootstrapBundle\\Composer\\ScriptHandler::postInstallSymlinkTwitterBootstrap"
     ]
   },
   "config": {

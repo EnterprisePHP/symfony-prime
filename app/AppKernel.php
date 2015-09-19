@@ -28,7 +28,7 @@ class AppKernel extends Kernel
             new WhiteOctober\PagerfantaBundle\WhiteOctoberPagerfantaBundle(),
             new APY\DataGridBundle\APYDataGridBundle(),
             new Knp\Bundle\MenuBundle\KnpMenuBundle(),
-            new Braincrafted\Bundle\BootstrapBundle\BraincraftedBootstrapBundle(),
+            new Mopa\Bundle\BootstrapBundle\MopaBootstrapBundle(),
 
             new AppBundle\AppBundle(),
             new UserBundle\UserBundle(),

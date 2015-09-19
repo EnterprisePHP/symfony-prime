@@ -36,12 +36,17 @@ assetic:
   bundles:        [ ]
   filters:
     cssrewrite: ~
-    sass:
-      bin: /usr/local/bin/sass
-      apply_to: "\.scss$"
+    less:
+      node: /usr/local/bin/node
+      node_paths: [/usr/local/lib/node_modules]
+      apply_to: "\.less$"
 
-braincrafted_bootstrap:
-  less_filter: sass
+mopa_bootstrap:
+  form: ~
+  menu: ~  # enables twig helpers for menu
+  icons:
+      icon_set: fontawesome4
+      shortcut: icon
 
 # Doctrine Configuration
 doctrine:
