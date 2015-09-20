@@ -1,0 +1,28 @@
+{% extends "::base.html.twig" %}
+{% from 'MopaBootstrapBundle::flash.html.twig' import session_flash %}
+
+{% block body %}
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-{% block panel_size %}4{% endblock panel_size %} col-sm-offset-{% block panel_offset_size %}4{% endblock panel_offset_size %}">
+                <div class="login-panel panel panel-default">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">{% block headline %}SF Prime{% endblock headline %}</h3>
+                    </div>
+                    <div class="panel-body">
+                        {% block flashes %}
+                            {% if app.session.flashbag.peekAll|length > 0 %}
+                                <div class="row">
+                                    <div class="col-lg-12">
+                                        {{ session_flash() }}
+                                    </div>
+                                </div>
+                            {% endif %}
+                        {% endblock flashes %}
+                        {% block content %}{% endblock content %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock body %}

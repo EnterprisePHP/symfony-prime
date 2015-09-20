@@ -1,0 +1,14 @@
+{% extends "::plain_base.html.twig" %}
+
+{% block title %}Check your e-mail - {{ parent() }}{% endblock title %}
+{% block headline %}Check your e-mail{% endblock headline %}
+
+{% block content %}
+    <div class="well">
+        <p>{{ 'registration.check_email'|trans({'%email%': user.email}) }}</p>
+    </div>
+    <hr>
+    <a href="{{ path("fos_user_security_login") }}">Sign In</a> |
+    <a href="{{ path("fos_user_resetting_request") }}">Password Reset</a> |
+    <a href="{{ path("fos_user_registration_register") }}">Register</a>
+{% endblock content %}

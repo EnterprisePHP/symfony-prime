@@ -1,0 +1,24 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Profile - {{ parent() }}{% endblock %}
+
+{% block headline %}Profile{% endblock %}
+
+{% block content_content %}
+    <table class="table table-bordered table-stripped">
+        <tr>
+            <th>{{ 'profile.show.username'|trans }}</th>
+            <td>{{ user.username }}</td>
+        </tr>
+        <tr>
+            <th>{{ 'profile.show.email'|trans }}</th>
+            <td>{{ user.email }}</td>
+        </tr>
+        <tr>
+            <td colspan="2">
+                <a href="{{ path('fos_user_profile_edit') }}" class="btn btn-default">Edit Profile ...</a>
+                <a href="{{ path('fos_user_change_password') }}" class="btn btn-default">Change Password ...</a>
+            </td>
+        </tr>
+    </table>
+{% endblock %}

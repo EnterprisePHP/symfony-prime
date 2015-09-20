@@ -1,19 +1,92 @@
 {% extends 'MopaBootstrapBundle::base.html.twig' %}
+{% from 'MopaBootstrapBundle::flash.html.twig' import session_flash %}
 
 {% block head_style %}
     {% stylesheets filter="cssrewrite,?yui_css" output="assets/css/bootstrap.css"
     'bundles/mopabootstrap/less/mopabootstrapbundle-fa.less'
+    'vendor/metisMenu/dist/metisMenu.min.css'
+    'bundles/app/css/main.css'
     %}
     <link href="{{ asset_url }}" type="text/css" rel="stylesheet" media="screen" />
     {% endstylesheets %}
 {% endblock head_style %}
+{% block body_start %}
+    <div id="wrapper">
+{% endblock body_start %}
+{% block navbar %}
+    {% embed '::navbar.html.twig' with { staticTop: true, id: 'navbar' } %}
+        {% block brand %}
+            <a class="navbar-brand" href="{{ path('homepage') }}">SF Prime</a>
+        {% endblock %}
+
+        {% block menu %}
+            {{ mopa_bootstrap_menu('AppBundle:Builder:createRightMenu') }}
+        {% endblock %}
+
+        {% block side_menu %}
+            {{ mopa_bootstrap_menu('AppBundle:Builder:createSideMenu') }}
+        {% endblock %}
+    {% endembed %}
+{% endblock navbar %}
 
 {% block title %}SF Prime{% endblock %}
-{% block headline %}SF Prime{% endblock headline %}
-{% block footer %}
-    <p>&copy; <a href="http://okulbilisim.com/" target="_blank">OkulBilişim</a> 2015</p>
-{% endblock footer %}
 
+{% block container %}
+    {% block container_div_start %}<div class="{% block container_class %}page-wrapper{% endblock container_class %}">{% endblock container_div_start %}
+    {% block header %}
+    {% endblock header %}
+
+{% block content_div_start %}{% endblock content_div_start %}
+    {% block page_header %}
+        <div class="row">
+            <div class="col-lg-12">
+                <h1 class="page-header">{% block headline %}SF Prime{% endblock headline %}</h1>
+            </div>
+        </div>
+    {% endblock page_header %}
+
+    {% block flashes %}
+        {% if app.session.flashbag.peekAll|length > 0 %}
+            <div class="row">
+                <div class="col-lg-12">
+                    {{ session_flash() }}
+                </div>
+            </div>
+        {% endif %}
+    {% endblock flashes %}
+
+    {% block content_row %}
+        <div class="row">
+            {% block content %}
+                <div class="col-lg-12">
+                    {% block content_content %}
+                        <strong>Sample content ... </strong>
+                    {% endblock content_content %}
+                </div>
+            {% endblock content %}
+        </div>
+    {% endblock content_row %}
+
+{% block content_div_end %}{% endblock content_div_end %}
+
+{% block footer_tag_start %}
+    <footer>
+{% endblock footer_tag_start %}
+    <hr>
+    {% block footer %}
+        <p>&copy; <a href="http://okulbilisim.com/" target="_blank">OkulBilişim</a> 2015</p>
+    {% endblock footer %}
+
+{% block footer_tag_end %}
+    </footer>
+{% endblock footer_tag_end %}
+    {% block container_div_end %}</div><!-- /container -->{% endblock container_div_end %}
+{% endblock container %}
+
+
+{% block body_end %}
+    </div>
+{% endblock body_end %}
 {% block foot_script_assetic %}
     {% javascripts filter="?yui_js" output="assets/js/bootstrap.js"
     'vendor/jquery/dist/jquery.js'
@@ -21,6 +94,8 @@
     '@MopaBootstrapBundle/Resources/public/bootstrap/js/*.js'
     '@MopaBootstrapBundle/Resources/public/js/mopabootstrap-collection.js'
     '@MopaBootstrapBundle/Resources/public/js/mopabootstrap-subnav.js'
+    'vendor/metisMenu/dist/metisMenu.min.js'
+    'bundles/app/js/main.js'
     %}
     <script type="text/javascript" src="{{ asset_url }}"></script>
     {% endjavascripts %}

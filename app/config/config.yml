@@ -46,7 +46,8 @@ assetic:
       jar: "%kernel.root_dir%/Resources/java/yuicompressor.jar"
 
 mopa_bootstrap:
-  form: ~
+  form:
+     show_legend: false
   menu: ~  # enables twig helpers for menu
   icons:
       icon_set: fontawesome4

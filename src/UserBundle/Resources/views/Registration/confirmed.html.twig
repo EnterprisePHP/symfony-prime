@@ -1,0 +1,15 @@
+{% extends "::plain_base.html.twig" %}
+
+{% block title %}{{ 'registration.confirmed'|trans({'%username%': user.username}) }} - {{ parent() }}{% endblock title %}
+{% block headline %}{{ 'registration.confirmed'|trans({'%username%': user.username}) }}{% endblock headline %}
+
+{% block content %}
+    <p>{{ 'registration.confirmed'|trans({'%username%': user.username}) }}</p>
+    {% if targetUrl %}
+        <p><a href="{{ targetUrl }}">{{ 'registration.back'|trans }}</a></p>
+    {% endif %}
+    <hr>
+    <a href="{{ path("fos_user_security_login") }}">Sign In</a> |
+    <a href="{{ path("fos_user_resetting_request") }}">Password Reset</a> |
+    <a href="{{ path("fos_user_registration_register") }}">Register</a>
+{% endblock content %}

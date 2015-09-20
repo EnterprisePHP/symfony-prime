@@ -1,5 +1,5 @@
 parameters:
-
+  mopa_bootstrap.menu.template: ::menu.html.twig
 services:
   twig.extension.intl:
     class: Twig_Extensions_Extension_Intl
