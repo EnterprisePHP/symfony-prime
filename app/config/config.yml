@@ -111,6 +111,12 @@ fos_user:
   db_driver: orm
   firewall_name: main
   user_class: UserBundle\Entity\User
+  profile:
+    form:
+      type: user_profile
+  registration:
+    form:
+      type: user_registration
 
 knp_menu:
   twig:

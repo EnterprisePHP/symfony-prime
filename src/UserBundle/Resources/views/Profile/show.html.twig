@@ -15,6 +15,14 @@
             <td>{{ user.email }}</td>
         </tr>
         <tr>
+            <th>{{ 'profile.show.firstName'|trans }}</th>
+            <td>{{ user.firstName }}</td>
+        </tr>
+        <tr>
+            <th>{{ 'profile.show.lastName'|trans }}</th>
+            <td>{{ user.lastName }}</td>
+        </tr>
+        <tr>
             <td colspan="2">
                 <a href="{{ path('fos_user_profile_edit') }}" class="btn btn-default">Edit Profile ...</a>
                 <a href="{{ path('fos_user_change_password') }}" class="btn btn-default">Change Password ...</a>
