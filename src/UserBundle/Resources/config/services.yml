@@ -7,3 +7,8 @@ services:
     class: UserBundle\Form\Type\RegistrationFormType
     tags:
         - { name: form.type, alias: user_registration }
+
+  user.soft_delete:
+    class: UserBundle\EventListener\SoftDeleteListener
+    tags:
+      - { name: doctrine.event_listener, event: preSoftDelete }
