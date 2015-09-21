@@ -34,7 +34,8 @@
     "mopa/bootstrap-bundle": "v3.0.0-rc2",
     "phpoffice/phpexcel" : "1.8.*",
     "twbs/bootstrap": "3.3.*",
-    "ircmaxell/password-compat": "~1.0"
+    "ircmaxell/password-compat": "~1.0",
+    "guzzlehttp/guzzle": "^6.1"
   },
   "require-dev": {
     "sensio/generator-bundle": "~2.3",
