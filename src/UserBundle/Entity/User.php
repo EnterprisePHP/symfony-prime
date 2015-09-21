@@ -4,13 +4,23 @@ namespace UserBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 use FOS\UserBundle\Model\User as BaseUser;
+use Gedmo\Blameable\Traits\BlameableEntity;
+use Gedmo\Mapping\Annotation as Gedmo;
+use Gedmo\SoftDeleteable\Traits\SoftDeleteableEntity;
+use Gedmo\Timestampable\Traits\TimestampableEntity;
+
 
 /**
+ * @Gedmo\Loggable
  * @ORM\Entity
  * @ORM\Table(name="`user`")
  */
 class User extends BaseUser
 {
+    use SoftDeleteableEntity;
+    use TimestampableEntity;
+    use BlameableEntity;
+
     /**
      * @ORM\Id
      * @ORM\Column(type="integer")
@@ -19,12 +29,38 @@ class User extends BaseUser
     protected $id;
 
     /**
+     * @Gedmo\Versioned
+     * @inheritdoc
+     */
+    protected $email;
+
+    /**
+     * @Gedmo\Versioned
+     * @inheritdoc
+     */
+    protected $username;
+
+    /**
+     * @Gedmo\Versioned
+     * @inheritdoc
+     */
+    protected $password;
+
+    /**
+     * @Gedmo\Versioned
+     * @inheritdoc
+     */
+    protected $roles;
+
+    /**
+     * @Gedmo\Versioned
      * @ORM\Column(type="string", length=255)
      * @var string
      */
     protected $firstName;
 
     /**
+     * @Gedmo\Versioned
      * @ORM\Column(type="string", length=255)
      * @var string
      */
