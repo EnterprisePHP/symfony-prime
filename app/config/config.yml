@@ -28,7 +28,8 @@ framework:
 twig:
   debug:            "%kernel.debug%"
   strict_variables: "%kernel.debug%"
-
+  form_themes:
+    - 'VichUploaderBundle:Form:fields.html.twig'
 # Assetic Configuration
 assetic:
   debug:          "%kernel.debug%"
@@ -123,6 +124,14 @@ knp_menu:
     template: knp_menu.html.twig
   templating: false
   default_renderer: twig
+
+vich_uploader:
+    db_driver: orm
+    mappings:
+      user_profile:
+        uri_prefix:         /images/users
+        upload_destination: %kernel.root_dir%/../web/images/users
+        inject_on_load:     false
 
 swiftmailer:
   transport: "%mailer_transport%"

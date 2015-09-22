@@ -29,6 +29,7 @@ class AppKernel extends Kernel
             new APY\DataGridBundle\APYDataGridBundle(),
             new Knp\Bundle\MenuBundle\KnpMenuBundle(),
             new Mopa\Bundle\BootstrapBundle\MopaBootstrapBundle(),
+            new Vich\UploaderBundle\VichUploaderBundle(),
 
             new AppBundle\AppBundle(),
             new UserBundle\UserBundle(),

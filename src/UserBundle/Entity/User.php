@@ -8,9 +8,12 @@ use Gedmo\Blameable\Traits\BlameableEntity;
 use Gedmo\Mapping\Annotation as Gedmo;
 use Gedmo\SoftDeleteable\Traits\SoftDeleteableEntity;
 use Gedmo\Timestampable\Traits\TimestampableEntity;
-
+use Symfony\Component\HttpFoundation\File\File;
+use Symfony\Component\HttpFoundation\File\UploadedFile;
+use Vich\UploaderBundle\Mapping\Annotation as Vich;
 
 /**
+ * @Vich\Uploadable
  * @Gedmo\Loggable
  * @Gedmo\SoftDeleteable(fieldName="deletedAt", timeAware=false)
  * @ORM\Entity
@@ -67,6 +70,22 @@ class User extends BaseUser
      */
     protected $lastName;
 
+    /**
+     *
+     * @Vich\UploadableField(mapping="user_profile", fileNameProperty="profilePictureName")
+     *
+     * @var File
+     */
+    private $profilePicture;
+
+    /**
+     * @Gedmo\Versioned
+     * @ORM\Column(type="string", length=255, nullable=true)
+     *
+     * @var string
+     */
+    private $profilePictureName;
+
     public function __construct()
     {
         parent::__construct();
@@ -106,6 +125,48 @@ class User extends BaseUser
     public function setLastName($lastName)
     {
         $this->lastName = $lastName;
+
+        return $this;
+    }
+
+    /**
+     * @return File|null
+     */
+    public function getProfilePicture()
+    {
+        return $this->profilePicture;
+    }
+
+    /**
+     * @param File|UploadedFile|null $profilePicture
+     * @return User
+     */
+    public function setProfilePicture(File $profilePicture = null)
+    {
+        $this->profilePicture = $profilePicture;
+
+        if ($profilePicture) {
+            $this->updatedAt = new \DateTime();
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return string
+     */
+    public function getProfilePictureName()
+    {
+        return $this->profilePictureName;
+    }
+
+    /**
+     * @param string $profilePictureName
+     * @return User
+     */
+    public function setProfilePictureName($profilePictureName = null)
+    {
+        $this->profilePictureName = $profilePictureName;
 
         return $this;
     }

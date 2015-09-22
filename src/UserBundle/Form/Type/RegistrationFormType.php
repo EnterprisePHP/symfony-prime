@@ -14,14 +14,26 @@ class RegistrationFormType extends AbstractType
             ->remove('plainPassword')
             ->add('firstName', null, array('label' => 'profile.show.firstName'))
             ->add('lastName', null, array('label' => 'profile.show.lastName'))
-            ->add('plainPassword', 'repeated', array(
-                'type' => 'password',
-                'options' => array('translation_domain' => 'FOSUserBundle'),
-                'first_options' => array('label' => 'form.password'),
-                'second_options' => array('label' => 'form.password_confirmation'),
-                'invalid_message' => 'fos_user.password.mismatch',
-            ))
-        ;
+            ->add(
+                'profilePicture',
+                'vich_image',
+                array(
+                    'label' => 'profile.show.profilePicture',
+                    'allow_delete' => true,
+                    'download_link' => false
+                )
+            )
+            ->add(
+                'plainPassword',
+                'repeated',
+                array(
+                    'type' => 'password',
+                    'options' => array('translation_domain' => 'FOSUserBundle'),
+                    'first_options' => array('label' => 'form.password'),
+                    'second_options' => array('label' => 'form.password_confirmation'),
+                    'invalid_message' => 'fos_user.password.mismatch',
+                )
+            );
     }
 
     public function getParent()

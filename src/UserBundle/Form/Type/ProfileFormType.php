@@ -15,6 +15,15 @@ class ProfileFormType extends AbstractType
             ->remove('current_password')
             ->add('firstName', null, array('label' => 'profile.show.firstName'))
             ->add('lastName', null, array('label' => 'profile.show.lastName'))
+            ->add(
+                'profilePicture',
+                'vich_image',
+                array(
+                    'label' => 'profile.show.profilePicture',
+                    'allow_delete' => true,
+                    'download_link' => false
+                )
+            )
             ->add('current_password', 'password', array(
                 'label' => 'form.current_password',
                 'translation_domain' => 'FOSUserBundle',

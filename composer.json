@@ -32,6 +32,7 @@
     "apy/datagrid-bundle": "2.2.16",
     "knplabs/knp-menu-bundle": "2.0.x-dev",
     "mopa/bootstrap-bundle": "v3.0.0-rc2",
+    "vich/uploader-bundle": "dev-master",
     "phpoffice/phpexcel" : "1.8.*",
     "twbs/bootstrap": "3.3.*",
     "ircmaxell/password-compat": "~1.0",

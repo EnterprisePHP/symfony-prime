@@ -12,4 +12,5 @@
 /web/fonts/
 /web/assets/
 /web/vendor/
+/web/images/
 composer.lock
