@@ -125,12 +125,22 @@ knp_menu:
   templating: false
   default_renderer: twig
 
+oneup_flysystem:
+  adapters:
+    images_adapter:
+      local:
+        directory: %kernel.root_dir%/../web/images
+  filesystems:
+    image_fs:
+      adapter:    images_adapter
+      mount:      image_fs
+
 vich_uploader:
     db_driver: orm
     mappings:
       user_profile:
         uri_prefix:         /images/users
-        upload_destination: %kernel.root_dir%/../web/images/users
+        upload_destination: image_fs/users
         inject_on_load:     false
 
 swiftmailer:

@@ -30,6 +30,7 @@ class AppKernel extends Kernel
             new Knp\Bundle\MenuBundle\KnpMenuBundle(),
             new Mopa\Bundle\BootstrapBundle\MopaBootstrapBundle(),
             new Vich\UploaderBundle\VichUploaderBundle(),
+            new Oneup\FlysystemBundle\OneupFlysystemBundle(),
 
             new AppBundle\AppBundle(),
             new UserBundle\UserBundle(),
