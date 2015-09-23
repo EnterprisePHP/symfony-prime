@@ -23,6 +23,11 @@
             <td>{{ user.lastName }}</td>
         </tr>
         <tr>
+            <th>{{ 'profile.show.profilePicture'|trans }}</th>
+            <td><img src="{{ user.profilePictureName|imagine_filter('user_thumb') }}"
+                     alt="{{ 'profile.show.profilePicture'|trans }}"></td>
+        </tr>
+        <tr>
             <td colspan="2">
                 <a href="{{ path('fos_user_profile_edit') }}" class="btn btn-default">Edit Profile ...</a>
                 <a href="{{ path('fos_user_change_password') }}" class="btn btn-default">Change Password ...</a>

@@ -31,6 +31,7 @@ class AppKernel extends Kernel
             new Mopa\Bundle\BootstrapBundle\MopaBootstrapBundle(),
             new Vich\UploaderBundle\VichUploaderBundle(),
             new Oneup\FlysystemBundle\OneupFlysystemBundle(),
+            new Liip\ImagineBundle\LiipImagineBundle(),
 
             new AppBundle\AppBundle(),
             new UserBundle\UserBundle(),

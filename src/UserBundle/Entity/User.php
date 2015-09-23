@@ -72,7 +72,7 @@ class User extends BaseUser
 
     /**
      *
-     * @Vich\UploadableField(mapping="user_profile", fileNameProperty="profilePictureName")
+     * @Vich\UploadableField(mapping="user", fileNameProperty="profilePictureName")
      *
      * @var File
      */

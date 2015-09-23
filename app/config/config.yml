@@ -130,18 +130,45 @@ oneup_flysystem:
     images_adapter:
       local:
         directory: %kernel.root_dir%/../web/images
+    users_adapter:
+      local:
+        directory: %kernel.root_dir%/../web/images/users
   filesystems:
     image_fs:
       adapter:    images_adapter
       mount:      image_fs
+    user_fs:
+      adapter:    users_adapter
+      mount:      user_fs
 
 vich_uploader:
-    db_driver: orm
-    mappings:
-      user_profile:
-        uri_prefix:         /images/users
-        upload_destination: image_fs/users
-        inject_on_load:     false
+  db_driver: orm
+  storage:   flysystem
+  mappings:
+    user:
+      uri_prefix:         /images/users
+      upload_destination: user_fs
+      inject_on_load:     true
+
+liip_imagine:
+  resolvers:
+    default:
+      web_path:
+        cache_prefix: media
+  loaders:
+    default:
+      filesystem:
+        data_root: images/
+    user:
+      filesystem:
+        data_root: images/users/
+  filter_sets:
+    user:
+      data_loader:          user
+    user_thumb:
+      data_loader:          user
+      filters:
+        thumbnail: { size: [400, 200], mode: inset }
 
 swiftmailer:
   transport: "%mailer_transport%"
